@@ -20,12 +20,16 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/rewards")
-@RequiredArgsConstructor
 @Slf4j
 @Tag(name = "Customer Rewards", description = "REST API to calculate reward points for a customer")
 public class RewardsController {
 
     private final RewardService rewardService;
+
+    @Autowired
+    public RewardsController(RewardService rewardService) {
+        this.rewardService = rewardService;
+    }
 
     /**
      * Returns the reward summary for the given customer ID.
